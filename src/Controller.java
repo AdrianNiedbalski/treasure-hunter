@@ -1,6 +1,10 @@
+import java.security.Provider;
+
 public class Controller {
     Input playerInput = new Input();
     boolean running = true;
+    GameService gameService = new GameService();
+    Board board = new Board();
 
     public void runGame() {
         do {
@@ -19,6 +23,7 @@ public class Controller {
     private void executeMenu(int number) {
         switch (number) {
             case 1:
+                board.printBoard();
                 break;
             case 2:
                 this.running = false;
