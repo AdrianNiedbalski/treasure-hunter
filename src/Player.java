@@ -8,4 +8,9 @@ public class Player {
     public Player(int x, int y) {
         this.position = new Position(x, y);
     }
+
+    public void move(Direction direction) {
+        position.applyDirection(direction);
+    }
 }
+
