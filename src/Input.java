@@ -16,4 +16,16 @@ public class Input {
             }
         }
     }
+
+    public Direction getDirection() {
+        String userDirection = scanner.nextLine();
+        return switch (userDirection) {
+            case "W" -> Direction.UP;
+            case "A" -> Direction.LEFT;
+            case "S" -> Direction.DOWN;
+            case "D" -> Direction.RIGHT;
+            default -> null;
+        };
+    }
 }
+

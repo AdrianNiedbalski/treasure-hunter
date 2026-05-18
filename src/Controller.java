@@ -4,7 +4,6 @@ public class Controller {
     Input playerInput = new Input();
     boolean running = true;
     GameService gameService = new GameService();
-    Board board = new Board();
 
     public void runGame() {
         do {
@@ -15,15 +14,16 @@ public class Controller {
     }
 
     private void printMenu() {
-        System.out.println("--------------------");
+        System.out.println("------------------------------");
         System.out.println("1. Play");
         System.out.println("2. Quit");
+        System.out.println("------------------------------");
     }
 
     private void executeMenu(int number) {
         switch (number) {
             case 1:
-                board.printBoard();
+                gameService.startGame();
                 break;
             case 2:
                 this.running = false;
