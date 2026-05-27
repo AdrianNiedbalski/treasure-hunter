@@ -18,14 +18,24 @@ public class Input {
     }
 
     public Direction getDirection() {
-        String userDirection = scanner.nextLine();
-        return switch (userDirection) {
-            case "W" -> Direction.UP;
-            case "A" -> Direction.LEFT;
-            case "S" -> Direction.DOWN;
-            case "D" -> Direction.RIGHT;
-            default -> null;
-        };
+        Direction direction = null;
+
+        do {
+            String userDirection = scanner.nextLine();
+
+            direction = switch (userDirection) {
+                case "W" -> Direction.UP;
+                case "A" -> Direction.LEFT;
+                case "S" -> Direction.DOWN;
+                case "D" -> Direction.RIGHT;
+                default -> {
+                    System.out.println("Niepoprawna wartość. Wybierz kierunek : W, A, S, D");
+                    yield null;
+                }
+            };
+        } while (direction == null);
+
+        return direction;
     }
 }
 

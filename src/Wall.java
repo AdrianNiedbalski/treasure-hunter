@@ -5,5 +5,8 @@ public class Wall extends BoardObject {
 
     @Override
     public void interact(Player player) {
+
     }
+
+
 }

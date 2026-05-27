@@ -5,6 +5,6 @@ public class Treasure extends BoardObject {
 
     @Override
     public void interact(Player player) {
-
+        player.collectTreasure();
     }
 }

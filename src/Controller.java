@@ -1,14 +1,12 @@
-import java.security.Provider;
-
 public class Controller {
-    Input playerInput = new Input();
-    boolean running = true;
-    GameService gameService = new GameService();
+    private boolean running = true;
+    private GameService gameService = new GameService();
+    private Input input = new Input();
 
     public void runGame() {
         do {
             printMenu();
-            int number = playerInput.getNumber();
+            int number = input.getNumber();
             executeMenu(number);
         } while (running);
     }
@@ -23,7 +21,8 @@ public class Controller {
     private void executeMenu(int number) {
         switch (number) {
             case 1:
-                gameService.startGame();
+                startGame();
+
                 break;
             case 2:
                 this.running = false;
@@ -31,5 +30,14 @@ public class Controller {
             default:
                 System.out.println("Niepoprawny wybór!");
         }
+    }
+
+    public void startGame() {
+        gameService.initGame();
+
+        do {
+            gameService.getCurrentBoard().printBoard(gameService.getPlayer(), gameService.getEnemy());
+            gameService.processMove(gameService.getPlayer(), gameService.getEnemy(), input.getDirection());
+        } while (gameService.getGameRunning());
     }
 }

@@ -7,4 +7,12 @@ public abstract class BoardObject {
     public String getSymbol() {
         return symbol;
     }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public boolean isPassable() {
+        return !(this instanceof Wall);
+    }
 }

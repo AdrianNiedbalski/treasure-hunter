@@ -19,4 +19,7 @@ public class Position {
     public int getY() {
         return y;
     }
+    public Position calculateNextPosition(Direction direction) {
+        return new Position(direction.getDx() + this.x, direction.getDy() + this.y);
+    }
 }

@@ -15,6 +15,26 @@ public class Player{
         position.applyDirection(direction);
     }
 
+    public void collectTreasure() {
+        treasuresCollected++;
+        System.out.println("Treasure collected! Total treasures: " + treasuresCollected);
+    }
+
+    public void takeDamage() {
+        lives--;
+        System.out.println("Ouch! Lives remaining: " + lives);
+    }
+
+    public void enterBase() {
+        inBase = true;
+        System.out.println("You entered the base!");
+
+    }
+
+    public void resetTreasure() {
+        treasuresCollected = 0;
+    }
+
     public void setPosition(Position position) {
         this.position = position;
     }
@@ -37,6 +57,10 @@ public class Player{
 
     public boolean isInBase() {
         return inBase;
+    }
+
+    public void setInBase(boolean inBase) {
+        this.inBase = inBase;
     }
 }
 

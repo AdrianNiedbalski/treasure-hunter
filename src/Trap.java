@@ -5,5 +5,6 @@ public class Trap extends BoardObject {
 
     @Override
     public void interact(Player player) {
+        player.takeDamage();
     }
 }

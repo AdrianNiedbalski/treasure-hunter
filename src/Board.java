@@ -10,8 +10,8 @@ public class Board {
     }
 
     public void printBoard(Player player, Enemy enemy) {
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
+        for (int y = height - 1; y >= 0; y--) {
+            for (int x = 0; x < width; x++) {
                 if (player.getPosition().getX() == x && player.getPosition().getY() == y) {
                     System.out.print(" " + player.getSymbol() + " ");
                 } else if (enemy.getPosition().getX() == x && enemy.getPosition().getY() == y) {
@@ -30,5 +30,21 @@ public class Board {
         if (x >= 0 && x < width && y >= 0 && y < height) {
             mapGrid[x][y] = boardObject;
         }
+    }
+
+    public void removeObject(int x, int y) {
+        mapGrid[x][y] = null;
+    }
+
+    public BoardObject[][] getMapGrid() {
+        return mapGrid;
+    }
+
+    public BoardObject getObject(int x, int y) {
+
+        if (x >= 0 && x < width && y >= 0 && y < height) {
+            return mapGrid[x][y];
+        }
+        return new Wall();
     }
 }

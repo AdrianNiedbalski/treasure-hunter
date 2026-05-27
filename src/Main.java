@@ -18,15 +18,7 @@ B - baza
 */
 public class Main {
     public static void main(String[] args) {
-        //Controller controller = new Controller();
-        //controller.runGame();
-
-        int c = 5;
-        c = add(c);
-        System.out.println(c);
-    }
-
-    static int add (int x) {
-        return x++;
+        Controller controller = new Controller();
+        controller.runGame();
     }
 }
