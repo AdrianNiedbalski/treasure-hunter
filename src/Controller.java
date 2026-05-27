@@ -38,6 +38,7 @@ public class Controller {
         do {
             gameService.getCurrentBoard().printBoard(gameService.getPlayer(), gameService.getEnemy());
             gameService.processMove(gameService.getPlayer(), gameService.getEnemy(), input.getDirection());
+            gameService.processEnemyMove(gameService.getEnemy());
         } while (gameService.getGameRunning());
     }
 }

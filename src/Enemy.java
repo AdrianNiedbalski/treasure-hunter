@@ -6,10 +6,11 @@ public class Enemy {
 
     public Enemy(int x, int y) {
         this.symbol = "E";
-        this.position = new Position(x,y);
+        this.position = new Position(x, y);
     }
 
-    public Enemy() {}
+    public Enemy() {
+    }
 
     public Direction getRandomDirection() {
         Random random = new Random();

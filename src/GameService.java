@@ -13,6 +13,26 @@ public class GameService {
         currentBoard = levelFactory.loadLevel(currentLevel, player, enemy);
     }
 
+    public void processEnemyMove(Enemy enemy) {
+        boolean moved = false;
+        while (!moved) {
+            Direction direction = enemy.getRandomDirection();
+            Position nextEnemyPosition = enemy.getPosition().calculateNextPosition(direction);
+            BoardObject target = currentBoard.getObject(nextEnemyPosition.getX(), nextEnemyPosition.getY());
+
+
+            if (target == null) {
+                enemy.move(direction);
+                moved = true;
+            }
+        }
+        if (enemy.getPosition().getX() == player.getPosition().getX() && enemy.getPosition().getY() == player.getPosition().getY()) {
+            System.out.println("Enemy caught you!");
+            player.takeDamage();
+            player.resetPlayerPosition();
+        }
+    }
+
     public void processMove(Player player, Enemy enemy, Direction direction) {
         Position nextPosition = player.getPosition().calculateNextPosition(direction);
         BoardObject target = currentBoard.getObject(nextPosition.getX(), nextPosition.getY());

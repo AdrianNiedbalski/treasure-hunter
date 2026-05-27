@@ -1,11 +1,13 @@
-public class Player{
+public class Player {
     private String symbol;
     private int lives = 3;
     private Position position;
     private int treasuresCollected = 0;
     private boolean inBase = false;
 
-    public Player(){}
+    public Player() {
+    }
+
     public Player(int x, int y) {
         this.symbol = "P";
         this.position = new Position(x, y);
@@ -29,6 +31,10 @@ public class Player{
         inBase = true;
         System.out.println("You entered the base!");
 
+    }
+
+    public void resetPlayerPosition() {
+        position = new Position(0, 0);
     }
 
     public void resetTreasure() {

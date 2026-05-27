@@ -15,6 +15,7 @@ B - baza
 6. Gracz nie może poruszać się po polach oznaczonych jako wall (#).
 7. Gracz zaczyna grę na polu oznaczonym jako baza (B).
 8. Gracz ma 3 życia, jeśli straci wszystkie życia, gra się kończy.
+9. Enemy powyżej połowy planszy rusza się losowo w jednym z czterech kierunków.
 */
 public class Main {
     public static void main(String[] args) {
